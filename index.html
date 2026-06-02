@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAILON | Artisan Desserts & Cafe</title>
     
-    <!-- Memuat font estetis yang cocok dengan nuansa Artisan/Klasik -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -53,7 +52,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 24px;
             font-weight: 700;
-            color: var(--mailon-cream); /* Diubah jadi terang agar kontras dengan hero image */
+            color: var(--mailon-cream); 
             letter-spacing: 2px;
             display: flex;
             align-items: center;
@@ -92,8 +91,8 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            /* Pastikan file 197361.jpg ada di folder yang sama, disarankan diconvert ke .webp */
-            background: linear-gradient(rgba(45, 45, 45, 0.6), rgba(45, 45, 45, 0.6)), url('197361.jpg') center/cover no-repeat;
+            /* Menggunakan Hero-Image.webp dengan resolusi 1920x1080 */
+            background: linear-gradient(rgba(45, 45, 45, 0.5), rgba(45, 45, 45, 0.7)), url('Hero-Image.webp') center/cover no-repeat;
             color: var(--mailon-cream);
         }
 
@@ -111,18 +110,18 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--mailon-cream);
             margin-bottom: 20px;
-            max-width: 800px;
+            max-width: 900px;
             line-height: 1.1;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             max-width: 600px;
             margin-bottom: 40px;
-            color: #ddd;
+            color: #eeeeee;
         }
 
         .btn-primary {
@@ -133,7 +132,7 @@
             font-weight: 500;
             letter-spacing: 1px;
             border-radius: 4px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -141,7 +140,8 @@
 
         .btn-primary:hover {
             background-color: #b71c1c;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(211, 47, 47, 0.3);
         }
 
         /* Section Filosofi (Teks dari Kaca Jendela) */
@@ -154,7 +154,7 @@
         }
 
         .philosophy-content {
-            max-width: 700px;
+            max-width: 750px;
             text-align: center;
         }
 
@@ -183,14 +183,16 @@
 
         .feature-card {
             text-align: center;
-            padding: 40px 20px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            transition: box-shadow 0.3s ease;
+            padding: 50px 30px;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            background-color: #ffffff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-card:hover {
-            box-shadow: 0 10px 30px rgba(92, 61, 46, 0.08);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(92, 61, 46, 0.08);
         }
 
         .feature-card .icon-circle {
@@ -201,61 +203,75 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             color: var(--mailon-brown);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .feature-card:hover .icon-circle {
+            background-color: var(--mailon-red);
+            color: #ffffff;
         }
 
         .feature-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
             color: var(--mailon-brown);
         }
 
-        /* GALERI FOTO (Baru Ditambahkan) */
+        .feature-card p {
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        /* GALERI FOTO (Mendukung 4 Gambar Persegi 1000x1000) */
         .gallery-section {
-            padding: 80px 5%;
+            padding: 100px 5%;
             background-color: var(--mailon-cream);
             text-align: center;
         }
 
         .gallery-section h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--mailon-brown);
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* Responsive Grid untuk Galeri */
+        @media (min-width: 600px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
-            aspect-ratio: 4 / 5; /* Memaksa rasio portrait seragam */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Jika ingin gambar yang lebih lebar, Anda bisa menambahkan class "wide" */
-        .gallery-item.wide {
-            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            aspect-ratio: 1 / 1; /* Karena resolusi gambar 1000x1000 */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            background-color: #eee;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .gallery-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         /* Overlay gelap saat di-hover */
@@ -264,24 +280,23 @@
             bottom: -100%;
             left: 0;
             width: 100%;
-            padding: 20px;
-            background: linear-gradient(transparent, rgba(92, 61, 46, 0.9));
+            padding: 30px 20px 20px;
+            background: linear-gradient(to top, rgba(92, 61, 46, 0.95), transparent);
             color: white;
             text-align: left;
-            transition: bottom 0.3s ease;
+            transition: bottom 0.4s ease;
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
         }
 
         .gallery-item:hover .gallery-overlay {
             bottom: 0;
         }
 
-
         /* CTA Cek Tarif */
         .tariff-cta {
-            background-color: #ffffff; /* Ubah agar kontras dengan galeri */
-            padding: 80px 5%;
+            background-color: #ffffff;
+            padding: 100px 5%;
             text-align: center;
             border-top: 2px dashed var(--mailon-wood);
             border-bottom: 2px dashed var(--mailon-wood);
@@ -289,9 +304,16 @@
 
         .tariff-cta h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--mailon-brown);
             margin-bottom: 20px;
+        }
+
+        .tariff-cta p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 30px;
         }
 
         .btn-outline {
@@ -301,43 +323,59 @@
             border: 2px solid var(--mailon-brown);
             color: var(--mailon-brown);
             text-decoration: none;
-            padding: 14px 32px;
+            padding: 16px 36px;
+            font-size: 1.05rem;
             font-weight: 600;
             border-radius: 4px;
             transition: all 0.3s ease;
-            margin-top: 20px;
         }
 
         .btn-outline:hover {
             background-color: var(--mailon-brown);
             color: var(--mailon-cream);
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            background-color: #2D2D2D;
-            color: #ccc;
-            padding: 60px 5% 30px;
+            background-color: #1a1a1a;
+            color: #aaa;
+            padding: 80px 5% 40px;
             text-align: center;
         }
 
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: white;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
         }
 
         .footer-address {
-            margin-bottom: 30px;
-            font-size: 0.9rem;
+            margin-bottom: 40px;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .creator-mark {
+            font-size: 13px;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #777;
+        }
+
+        .creator-mark strong {
+            color: var(--mailon-wood);
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .philosophy-content p { font-size: 1.4rem; }
+            .hero h1 { font-size: 3rem; }
+            .philosophy-content p { font-size: 1.5rem; }
             .nav-links { display: none; }
-            .gallery-grid { grid-template-columns: 1fr; }
+            .tariff-cta h2 { font-size: 2.2rem; }
+            .gallery-section h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -354,7 +392,6 @@
         </div>
     </nav>
 
-    <!-- Gunakan 197361.jpg untuk foto latar belakang (Fasad Cafe) -->
     <section class="hero">
         <div class="hero-stamp">Est. in Batam</div>
         <h1>Stamped in sweetness, Sealed in connection.</h1>
@@ -393,23 +430,23 @@
         </div>
     </section>
 
-    <!-- SECTION GALERI DITAMBAHKAN -->
     <section class="gallery-section" id="gallery">
         <h2>Glimpse of Mailon</h2>
         <div class="gallery-grid">
-            <!-- Etalase Kue -->
-            <div class="gallery-item wide">
-                <img src="197357.jpg" alt="Mailon Artisan Desserts Display">
+            <div class="gallery-item">
+                <img src="197357.webp" alt="Mailon Artisan Desserts Display">
                 <div class="gallery-overlay">Artisan Desserts</div>
             </div>
-            <!-- Pos Loker & Interior -->
             <div class="gallery-item">
-                <img src="197359.jpg" alt="Mailon Cafe Interior with Postal Lockers">
+                <img src="197359.webp" alt="Mailon Cafe Interior with Postal Lockers">
                 <div class="gallery-overlay">Postal Aesthetic</div>
             </div>
-            <!-- Kotak Pos Mailon -->
             <div class="gallery-item">
-                <img src="197356.jpg" alt="Iconic Mailon Postbox">
+                <img src="197339.webp" alt="Mailon Cozy Ambience">
+                <div class="gallery-overlay">Cozy Ambience</div>
+            </div>
+            <div class="gallery-item">
+                <img src="197356.webp" alt="Iconic Mailon Postbox">
                 <div class="gallery-overlay">Mail Your Postcard</div>
             </div>
         </div>
@@ -418,7 +455,7 @@
     <section class="tariff-cta" id="rates">
         <h2>Want to send a postcard today?</h2>
         <p>Whether you're sending it locally across Indonesia or to loved ones overseas, check the exact postage stamp rate instantly.</p>
-        <a href="https://mailon.posnew.com/" class="btn-outline">
+        <a href="https://mailon.posnew.com/" class="btn-outline" target="_blank" rel="noopener noreferrer">
             <i data-lucide="calculator"></i> Cek Tarif Kartu Pos
         </a>
     </section>
@@ -426,7 +463,9 @@
     <footer>
         <div class="footer-logo">MAILON</div>
         <p class="footer-address">Batam, Indonesia<br>Artisan Desserts & Cafe</p>
-        <p style="font-size: 12px; margin-top: 40px;">&copy; 2026 Mailon Cafe. Developed by Ikhsan Radiansyah.</p>
+        <div class="creator-mark">
+            &copy; 2026 Mailon Cafe. Website Innovation by <strong>Ikhsan Radiansyah</strong>.
+        </div>
     </footer>
 
     <script>
